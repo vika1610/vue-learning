@@ -1,0 +1,23 @@
+{
+  "name": "week-00-js",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Неделя 0 — база JavaScript: задачи с тестами на Vitest",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:day1": "vitest run day-1",
+    "test:day2": "vitest run day-2",
+    "test:day3": "vitest run day-3",
+    "test:day4": "vitest run day-4",
+    "test:day5": "vitest run day-5",
+    "serve:day4": "vite day-4",
+    "serve:day5": "vite day-5"
+  },
+  "devDependencies": {
+    "jsdom": "^30.1.2",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  }
+}

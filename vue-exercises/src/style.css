@@ -1,0 +1,17 @@
+/* Общие стили для всех задач. Можно менять как хочешь. */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background: #fff;
+}
+
+a {
+  color: #42b883;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
