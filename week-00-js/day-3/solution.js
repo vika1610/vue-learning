@@ -7,7 +7,7 @@
  * @returns {object} новый объект с объединёнными настройками
  */
 export function mergeSettings(defaults, user) {
-  // TODO: твой код здесь
+  return {...defaults, ...user};
 }
 
 /**
@@ -17,7 +17,7 @@ export function mergeSettings(defaults, user) {
  * @returns {{ id: number, title: string, price: number }[]}
  */
 export function getCheapProducts(products) {
-  // TODO: твой код здесь
+  return products.filter(item => item.price < 1000);
 }
 
 /**
@@ -27,7 +27,7 @@ export function getCheapProducts(products) {
  * @returns {number}
  */
 export function getTotal(products) {
-  // TODO: твой код здесь
+  return products.reduce((acc, item) => acc + item.price, 0);
 }
 
 /**
@@ -38,7 +38,7 @@ export function getTotal(products) {
  * @returns {{ price: number }[]}
  */
 export function sortByPrice(products) {
-  // TODO: твой код здесь
+  return [...products].sort((a, b) => a.price - b.price);
 }
 
 /**
@@ -48,7 +48,7 @@ export function sortByPrice(products) {
  * @returns {string[]}
  */
 export function getTitles(products) {
-  // TODO: твой код здесь
+  return products.map(item => item.title);
 }
 
 /**
@@ -59,7 +59,7 @@ export function getTitles(products) {
  * @returns {object | undefined}
  */
 export function findById(products, id) {
-  // TODO: твой код здесь
+  return products.find(item => item.id === id);
 }
 
 /**
@@ -70,7 +70,7 @@ export function findById(products, id) {
  * @returns {boolean}
  */
 export function hasExpensive(products, limit) {
-  // TODO: твой код здесь
+  return products.some(item => item.price > limit);
 }
 
 /**
@@ -80,9 +80,10 @@ export function hasExpensive(products, limit) {
  * @param {...number} numbers
  * @returns {number}
  */
-export function sum() {
-  // TODO: добавь rest-параметр и посчитай сумму
+export function sum(...numbers) {
+  return numbers.reduce((acc, item) => acc + item, 0);
 }
+
 
 /**
  * Возвращает подпись товара «Название — цена ₽».
@@ -91,6 +92,6 @@ export function sum() {
  * @param {{ title: string, price: number }} product
  * @returns {string} например 'Кружка — 450 ₽'
  */
-export function getLabel(product) {
-  // TODO: твой код здесь
+export function getLabel({title, price}) {
+  return `${title} — ${price} ₽`;
 }
