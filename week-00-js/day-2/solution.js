@@ -4,8 +4,20 @@
  * @param {number} [start] — начальное значение, по умолчанию 0
  * @returns {{ inc: () => void, dec: () => void, value: () => number }}
  */
-export function makeCounter(start) {
+export function makeCounter(start = 0) {
   // TODO: заведи переменную для числа и верни объект с тремя методами
+  let count = start
+  return {
+    inc() {
+      count++
+    },
+    dec() {
+      count--
+    },
+    value() {
+      return count
+    }
+  }
 }
 
 /**
@@ -16,6 +28,11 @@ export function makeCounter(start) {
  */
 export function makeIdGenerator(prefix) {
   // TODO: твой код здесь
+  let id = 0;
+  return function() {
+    id++;
+    return `${prefix}-${id}`;
+  }
 }
 
 /**
@@ -24,9 +41,7 @@ export function makeIdGenerator(prefix) {
  * @param {object} obj
  * @returns {object}
  */
-export function copyObject(obj) {
-  // TODO: твой код здесь
-}
+export const copyObject = (obj) => Object.assign({}, obj);
 
 /**
  * Возвращает глубокую копию объекта: вложенные объекты тоже копируются.
@@ -34,6 +49,4 @@ export function copyObject(obj) {
  * @param {object} obj
  * @returns {object}
  */
-export function deepCopy(obj) {
-  // TODO: твой код здесь
-}
+export const deepCopy = (obj) => structuredClone(obj);
