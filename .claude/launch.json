@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "vue-exercises"],
       "port": 5173
+    },
+    {
+      "name": "week0-day4",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "serve:day4", "--prefix", "week-00-js", "--", "--port", "5174"],
+      "port": 5174
     }
   ]
 }

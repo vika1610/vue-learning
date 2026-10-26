@@ -9,7 +9,7 @@
  * @returns {string}
  */
 export function toggleText(current, a, b) {
-  // TODO: твой код здесь
+  return current === a ? b : a;
 }
 
 /**
@@ -19,7 +19,7 @@ export function toggleText(current, a, b) {
  * @returns {string} например 'Привет' для 'привет'; '' для ''
  */
 export function capitalize(str) {
-  // TODO: твой код здесь
+  return str.length === 0 ? str : str[0].toUpperCase() + str.slice(1);
 }
 
 /**
@@ -32,7 +32,10 @@ export function capitalize(str) {
  * @param {string} secondText — текст после первого клика
  */
 export function setupToggleButton(button, firstText, secondText) {
-  // TODO: поставь начальный текст и добавь обработчик события click
+  button.textContent = firstText;
+  button.addEventListener('click', () => {
+    button.textContent = toggleText(button.textContent, firstText, secondText);
+  });
 }
 
 /**
@@ -42,9 +45,14 @@ export function setupToggleButton(button, firstText, secondText) {
  * - applyDiscount(percent) уменьшает цену на percent процентов.
  */
 export class Product {
-  // TODO: constructor(title, price) { ... }
+  constructor(title, price) {
+    this.title = title;
+    this.price = price;
+  }
 
-  // TODO: getLabel() { ... }
+  getLabel() { return `${this.title} — ${this.price} ₽`; }
 
-  // TODO: applyDiscount(percent) { ... }
+  applyDiscount(percent) {
+    this.price = this.price * (1 - percent / 100);
+  }
 }

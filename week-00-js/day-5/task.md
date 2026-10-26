@@ -1,7 +1,7 @@
 # Неделя 0 · День 5 — Промисы, async/await, fetch, JSON
 
 **Теория (20 мин):** промисы, `async` / `await`, `fetch`, `try` / `catch`, JSON.
-Читать: learn.javascript.ru → «Промисы, async/await» (весь раздел), «Fetch», «Формат JSON».
+Читать: конспект [theory.md](theory.md) рядом с этим файлом (или learn.javascript.ru → «Промисы, async/await» (весь раздел), «Fetch», «Формат JSON»).
 
 **Практика (35 мин):**
 
