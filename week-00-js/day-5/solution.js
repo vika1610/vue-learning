@@ -8,7 +8,12 @@ export const USERS_URL = 'https://jsonplaceholder.typicode.com/users'
  * @returns {Promise<object[]>} массив пользователей
  */
 export async function loadUsers(url) {
-  // TODO: fetch → проверить response.ok → вернуть разобранный JSON
+  const response = await fetch(url ?? USERS_URL);
+  if(response.ok) {
+    return await response.json();
+  } else {
+    throw new Error(`ошибка ${response.status}`);
+  }
 }
 
 /**
@@ -18,7 +23,7 @@ export async function loadUsers(url) {
  * @returns {string[]}
  */
 export function getNames(users) {
-  // TODO: твой код здесь
+  return users.map(user => user.name);
 }
 
 /**
@@ -32,7 +37,21 @@ export function getNames(users) {
  * @returns {Promise<void>}
  */
 export async function renderUsers(container, url) {
-  // TODO: твой код здесь (не забудь try/catch)
+  container.textContent = 'Загрузка…';
+  try {
+    const users = await loadUsers(url);
+    const names = getNames(users);
+    const ul = document.createElement('ul');
+    for(const name of names) {
+      const li = document.createElement('li');
+      li.textContent = name;
+      ul.appendChild(li);
+    }
+    container.textContent = '';
+    container.appendChild(ul);
+  } catch (error) {
+    container.textContent = `Ошибка: ${error.message}`;
+  }
 }
 
 /**
@@ -42,7 +61,7 @@ export async function renderUsers(container, url) {
  * @returns {Promise<void>}
  */
 export function delay(ms) {
-  // TODO: твой код здесь
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 /**
@@ -53,7 +72,11 @@ export function delay(ms) {
  * @returns {*}
  */
 export function parseJSONSafe(text, fallback) {
-  // TODO: твой код здесь
+  try { 
+    return JSON.parse(text);
+  } catch {
+    return fallback;
+  }
 }
 
 /**
@@ -63,5 +86,6 @@ export function parseJSONSafe(text, fallback) {
  * @returns {string}
  */
 export function toJSON(users) {
-  // TODO: твой код здесь
+  const result = users.map(({id, name}) => ({ id, name }));
+  return JSON.stringify(result);
 }

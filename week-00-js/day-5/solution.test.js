@@ -100,6 +100,18 @@ describe('delay', () => {
     await vi.advanceTimersByTimeAsync(1)
     expect(done).toBe(true)
   })
+
+  it('использует переданное число миллисекунд, а не фиксированное', async () => {
+    vi.useFakeTimers()
+    let done = false
+    delay(300).then(() => {
+      done = true
+    })
+    await vi.advanceTimersByTimeAsync(299)
+    expect(done).toBe(false)
+    await vi.advanceTimersByTimeAsync(1)
+    expect(done).toBe(true)
+  })
 })
 
 describe('parseJSONSafe', () => {

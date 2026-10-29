@@ -12,6 +12,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "serve:day4", "--prefix", "week-00-js", "--", "--port", "5174"],
       "port": 5174
+    },
+    {
+      "name": "week0-day5",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "serve:day5", "--prefix", "week-00-js", "--", "--port", "5175"],
+      "port": 5175
     }
   ]
 }
