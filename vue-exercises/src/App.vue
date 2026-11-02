@@ -4,16 +4,24 @@
   Каждая задача запускается как ОТДЕЛЬНОЕ маленькое Vue-приложение.
   Если рядом с Exercise.vue лежит setup.js с функцией install(app),
   она вызывается до запуска — там на неделях 5 и 6 ты подключишь роутер и Pinia.
+
+  Если рядом лежит ExerciseOptions.vue — это бонус: та же задача в стиле Options API.
+  Она открывается по адресу ?ex=weekN/dayN&api=options (ссылка «Options API» в меню).
 -->
 <script setup>
 import { createApp, onMounted, onUnmounted, ref } from 'vue'
 import { exercises, weekTitles } from './exercises.js'
 
 const components = import.meta.glob('./exercises/*/*/Exercise.vue')
+const optionsComponents = import.meta.glob('./exercises/*/*/ExerciseOptions.vue')
 const setups = import.meta.glob('./exercises/*/*/setup.js')
 
-const currentId = new URLSearchParams(location.search).get('ex')
+const params = new URLSearchParams(location.search)
+const currentId = params.get('ex')
+const isOptions = params.get('api') === 'options'
 const current = exercises.find((ex) => ex.id === currentId)
+
+const hasOptionsVersion = (id) => `./exercises/${id}/ExerciseOptions.vue` in optionsComponents
 
 const weeks = Object.keys(weekTitles).map((week) => ({
   number: week,
@@ -28,7 +36,11 @@ let exerciseApp = null
 onMounted(async () => {
   if (!current) return
   try {
-    const component = (await components[`./exercises/${current.id}/Exercise.vue`]()).default
+    const loader = isOptions
+      ? optionsComponents[`./exercises/${current.id}/ExerciseOptions.vue`]
+      : components[`./exercises/${current.id}/Exercise.vue`]
+    if (!loader) throw new Error(`Файл ${isOptions ? 'ExerciseOptions.vue' : 'Exercise.vue'} для этой задачи не найден`)
+    const component = (await loader()).default
     exerciseApp = createApp(component)
     const setupLoader = setups[`./exercises/${current.id}/setup.js`]
     if (setupLoader) {
@@ -49,7 +61,12 @@ onUnmounted(() => exerciseApp?.unmount())
   <div v-if="current" class="exercise-page">
     <header class="exercise-header">
       <a href="/">← Все задачи</a>
-      <span>Неделя {{ current.week }} · День {{ current.day }} · {{ current.title }}</span>
+      <span>
+        Неделя {{ current.week }} · День {{ current.day }} · {{ current.title }}
+        <strong v-if="isOptions"> · Options API</strong>
+      </span>
+      <a v-if="isOptions" :href="`?ex=${current.id}`">→ версия &lt;script setup&gt;</a>
+      <a v-else-if="hasOptionsVersion(current.id)" :href="`?ex=${current.id}&api=options`">→ версия Options API</a>
     </header>
     <pre v-if="error" class="error">{{ error }}</pre>
     <div ref="mountPoint" class="exercise"></div>
@@ -63,6 +80,7 @@ onUnmounted(() => exerciseApp?.unmount())
       <ul>
         <li v-for="ex in week.items" :key="ex.id">
           <a :href="`?ex=${ex.id}`">Неделя {{ ex.week }} · День {{ ex.day }} · {{ ex.title }}</a>
+          <a v-if="hasOptionsVersion(ex.id)" class="options-link" :href="`?ex=${ex.id}&api=options`">Options API</a>
         </li>
       </ul>
     </section>
@@ -77,6 +95,13 @@ onUnmounted(() => exerciseApp?.unmount())
 }
 .menu li {
   margin: 6px 0;
+}
+.options-link {
+  margin-left: 8px;
+  font-size: 13px;
+  padding: 1px 6px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
 }
 .exercise-header {
   display: flex;
