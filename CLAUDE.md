@@ -78,5 +78,7 @@
 - `week-00-js/` — задачи по JS с тестами Vitest (`npm test`, `npm run test:day1…5`).
 - `vue-exercises/` — Vite + Vue 3 для недель 1, 2, 5, 6. Задачи в `src/exercises/weekN/dayN/Exercise.vue`. Каждая задача запускается как отдельное приложение. Для недель 5–6 рядом лежит `setup.js` с `install(app)`, где она сама подключает роутер или Pinia (роутер — с `createWebHashHistory`, чтобы не мешать меню).
 - `week-03-components/`, `week-04-composables/` — условия и подсказки. Проект `shop` она создаёт сама в `week-03-components/shop`.
-- `habit-tracker/SPEC.md` — ТЗ проекта. Код проекта — в `habit-tracker/app`.
+- `habit-tracker/SPEC.md` — ТЗ проекта. Код проекта — в `habit-tracker/app`. Конспекты дней проекта (нед. 5 д. 5, нед. 6 д. 4–5, недели 7–8) — `habit-tracker/theory/week-N-day-M.md`.
+- **Конспекты** (`theory.md`) есть для всех дней недель 1–8 (подготовлены заранее 2026-11-02). Оглавление — `THEORY.md` в корне. Недели 1, 2, 5, 6 — рядом с `Exercise.vue`; недели 3, 4 — рядом с `task.md`. Если по ходу курса выясняется, что тема даётся трудно, — дополняй конспект (новые примеры, ещё одно занятие), а не пиши заново.
+- `ExerciseOptions.vue` — бонус-задачи Options API (недели 1–2 и нед. 5 д. 1). Меню `vue-exercises` показывает ссылку «Options API»; есть кнопка «⏏ Размонтировать» — для проверки `onUnmounted` без перезагрузки.
 - `notes/` — её ежедневные заметки, шаблон `notes/template.md`.

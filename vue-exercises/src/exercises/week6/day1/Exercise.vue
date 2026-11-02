@@ -1,7 +1,7 @@
 <!--
   Неделя 6 · День 1 · Счётчик в сторе
 
-  Теория: pinia.vuejs.org — «Introduction» (зачем Pinia, установка), «Defining a Store».
+  Теория: конспект theory.md рядом с этим файлом (или pinia.vuejs.org — «Introduction» (зачем Pinia, установка), «Defining a Store»).
   JS-разминка (10 мин): объекты-хранилища, паттерн «одиночка» (singleton).
 
   pinia уже установлена в проекте (npm-пакет), но не подключена — это твоя задача.

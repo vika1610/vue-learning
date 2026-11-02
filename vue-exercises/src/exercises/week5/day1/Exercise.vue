@@ -1,7 +1,7 @@
 <!--
   Неделя 5 · День 1 · Три страницы и меню
 
-  Теория: router.vuejs.org/ru — «Начало работы»: установка, RouterLink, RouterView.
+  Теория: конспект theory.md рядом с этим файлом (или router.vuejs.org/ru — «Начало работы»: установка, RouterLink, RouterView).
   JS-разминка (10 мин): URL, query string, History API.
 
   vue-router уже установлен в проекте (npm-пакет), но не подключён — это твоя задача.

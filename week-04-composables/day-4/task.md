@@ -1,5 +1,7 @@
 # Неделя 4 · День 4 — ПРОЕКТ: форма добавления и список привычек
 
+> 📖 Конспект с теорией и планом занятий — [theory.md](theory.md) рядом с этим файлом.
+
 **JS-разминка (10 мин):** `crypto.randomUUID()`, `find` / `findIndex`. Попробуй в консоли: `crypto.randomUUID()` и `[{ id: 'a' }, { id: 'b' }].findIndex((x) => x.id === 'b')`.
 
 **Теория:** —. Весь час — на проект `habit-tracker/app`. Шаги из [`habit-tracker/SPEC.md`](../../habit-tracker/SPEC.md), раздел «Неделя 4».

@@ -1,5 +1,7 @@
 # Неделя 4 · День 2 — Композабл useLocalStorage
 
+> 📖 Конспект с теорией и планом занятий — [theory.md](theory.md) рядом с этим файлом.
+
 **JS-разминка (10 мин):** `JSON.stringify` / `JSON.parse`, `localStorage` (`getItem`, `setItem`, `removeItem`). Что вернёт `getItem` для несуществующего ключа?
 
 **Теория (15 мин):** ru.vuejs.org — примеры композаблов в документации (раздел «Композаблы»), FAQ по Composition API.

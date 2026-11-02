@@ -1,7 +1,7 @@
 <!--
   Неделя 6 · День 3 · Корзина
 
-  Теория: pinia.vuejs.org — асинхронные actions, $subscribe, «Plugins» (обзор).
+  Теория: конспект theory.md рядом с этим файлом (или pinia.vuejs.org — асинхронные actions, $subscribe, «Plugins» (обзор)).
   JS-разминка (10 мин): асинхронные функции, JSON + localStorage.
 
   Начни с того, что скопируешь сюда свой магазин из week6/day2.

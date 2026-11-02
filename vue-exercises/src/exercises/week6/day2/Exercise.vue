@@ -1,7 +1,7 @@
 <!--
   Неделя 6 · День 2 · Магазин
 
-  Теория: pinia.vuejs.org — «State», «Getters», «Actions», storeToRefs.
+  Теория: конспект theory.md рядом с этим файлом (или pinia.vuejs.org — «State», «Getters», «Actions», storeToRefs).
   JS-разминка (10 мин): reduce (повтор).
 
   API: https://fakestoreapi.com/products — массив товаров { id, title, price, image, category }.

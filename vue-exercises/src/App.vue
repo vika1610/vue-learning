@@ -31,7 +31,15 @@ const weeks = Object.keys(weekTitles).map((week) => ({
 
 const mountPoint = ref(null)
 const error = ref('')
+const unmounted = ref(false)
 let exerciseApp = null
+
+// Размонтировать задачу без перезагрузки страницы — чтобы проверить onUnmounted
+function unmountExercise() {
+  exerciseApp?.unmount()
+  exerciseApp = null
+  unmounted.value = true
+}
 
 onMounted(async () => {
   if (!current) return
@@ -67,8 +75,13 @@ onUnmounted(() => exerciseApp?.unmount())
       </span>
       <a v-if="isOptions" :href="`?ex=${current.id}`">→ версия &lt;script setup&gt;</a>
       <a v-else-if="hasOptionsVersion(current.id)" :href="`?ex=${current.id}&api=options`">→ версия Options API</a>
+      <button v-if="!unmounted" class="unmount" @click="unmountExercise" title="Убрать задачу со страницы без перезагрузки — сработает onUnmounted">
+        ⏏ Размонтировать
+      </button>
+      <a v-else :href="`?ex=${current.id}${isOptions ? '&api=options' : ''}`">↻ Запустить снова</a>
     </header>
     <pre v-if="error" class="error">{{ error }}</pre>
+    <p v-if="unmounted" class="note">Задача размонтирована (сработал onUnmounted). Посмотри в консоль: не идут ли ещё сообщения?</p>
     <div ref="mountPoint" class="exercise"></div>
   </div>
 
@@ -115,6 +128,14 @@ onUnmounted(() => exerciseApp?.unmount())
 }
 .exercise {
   padding: 16px;
+}
+.unmount {
+  margin-left: auto;
+  font-size: 13px;
+}
+.note {
+  padding: 0 16px;
+  color: #555;
 }
 .error {
   color: #c62828;

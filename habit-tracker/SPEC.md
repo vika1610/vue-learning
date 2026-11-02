@@ -64,6 +64,8 @@
 
 ## Шаги по дням
 
+Конспекты к дням проекта: недели 4 — в `week-04-composables/day-N/theory.md`, остальные — в [`theory/`](theory/) (например, `theory/week-6-day-5.md`). Полное оглавление — [THEORY.md](../THEORY.md).
+
 ### Неделя 4 — Composition API, композаблы, старт проекта
 
 | День | Шаг |
@@ -73,7 +75,7 @@
 | 4 | Форма добавления привычки (`HabitForm`) и список (`HabitList`, `HabitItem`) |
 | 5 | «Сделано сегодня», редактирование, удаление, сохранение через `useLocalStorage` |
 
-Подробно: `week-04-composables/day-3…day-5/task.md`.
+Подробно: `week-04-composables/day-3…day-5/` — `task.md` и конспекты `theory.md`.
 
 ### Неделя 5 — Vue Router
 
