@@ -16,14 +16,24 @@
 -->
 <script>
 export default {
-  // TODO: data() { return { ... } }
-  // TODO: methods: { ... }
+  data(){
+    return {
+      name: "Vikky",
+      age: 35,
+    }
+  },
+  methods: {
+    ageInFiveYears() {
+      return this.age + 5;
+    }
+  }
 }
 </script>
 
 <template>
   <div>
     <h1>Первое приложение (Options API)</h1>
-    <!-- TODO: выведи имя, возраст и результат метода через {{ }} -->
+    <p>Меня зовут {{ name }}, мне {{ age }} лет.</p>
+    <p>Меня зовут {{ name.toUpperCase() }}, мне {{ ageInFiveYears() }} через 5 лет.</p>
   </div>
 </template>
