@@ -4,9 +4,11 @@
 
 - **Неделя:** 1 — Основы Vue
 - **День:** 2 — Синтаксис шаблонов, директивы, `v-bind`
-- **Занятие:** 1 из 3 — «Директивы и `v-bind`» (конспект `vue-exercises/src/exercises/week1/day2/theory.md`).
+- **Занятие:** 3 из 3 — «Options API» (конспект `vue-exercises/src/exercises/week1/day2/theory.md`), затем бонус `ExerciseOptions.vue`.
+  - Занятие 1 пройдено 2026-11-06: правильно различила обычный атрибут и `v-bind`, назвала краткую запись `:`, объяснила ошибку со строкой в `:alt` и предложила два исправления.
+  - Занятие 2 пройдено 2026-11-10: карточка профиля готова; объект, `:src`, `:alt`, `:href`, динамический `title` и тернарный оператор использованы правильно; production build успешен.
   - День 1 завершён 2026-11-05: правильно ответила на вопросы по Options API; бонус `ExerciseOptions.vue` исправлен, сборка `vue-exercises` прошла успешно.
-- **Задача:** `vue-exercises/src/exercises/week1/day2/Exercise.vue` (занятие 2), бонус `ExerciseOptions.vue` (занятие 3)
+- **Задача:** бонус `vue-exercises/src/exercises/week1/day2/ExerciseOptions.vue` (занятие 3)
 
 ## Темп
 

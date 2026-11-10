@@ -19,12 +19,22 @@
   Подсказки — в файле hints.md рядом.
 -->
 <script setup>
-// TODO: объект с данными профиля
+const user = {
+  name: 'Vikky',
+  position: 'front-end developer',
+  imgSrc: 'https://i.pravatar.cc/150?img=5',
+  link: 'https://github.com/vika1610/vue-learning',
+  online: true,
+}
 </script>
 
 <template>
-  <div class="card">
-    <!-- TODO: аватар, имя, должность, ссылка, статус «в сети» -->
+  <div class="card" :title="`Профиль: ${user.name}`">
+    <img :src="user.imgSrc" :alt="user.name">
+    <p>{{ user.name }}</p>
+    <p>{{ user.position }}</p>
+    <a :href="user.link">мой GitHub</a>
+    <p>{{ user.online ? 'в сети' : 'не в сети' }}</p>
   </div>
 </template>
 
