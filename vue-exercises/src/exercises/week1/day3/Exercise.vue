@@ -15,12 +15,52 @@
   Подсказки — в файле hints.md рядом.
 -->
 <script setup>
-// TODO: импортируй ref из 'vue' и заведи счётчик
+import { ref } from 'vue'
+import { reactive } from 'vue'
+
+const count = ref(0);
+
+function upCount() {
+  count.value++
+}
+
+function downCount() {
+  count.value--
+}
+
+function clearCount() {
+  count.value = 0
+}
+
+
+
+
+const countReactive = reactive({count: 0})
+
+function upCountReactive() {
+  countReactive.count++
+}
+function downCountReactive() {
+  countReactive.count--
+}
+function clearCountReactive() {
+  countReactive.count = 0
+}
 </script>
 
 <template>
   <div>
     <h1>Счётчик</h1>
-    <!-- TODO: число и кнопки «+1», «−1», «Сброс» -->
+    <span>{{ count }}</span>
+    <button @click="upCount">+1</button>
+    <button @click="downCount">-1</button>
+    <button @click="clearCount">Сброс</button>
+  </div>
+  <div>
+    <h1>Счётчик reactive</h1>
+    <span>{{ countReactive.count }}</span>
+    <button @click="upCountReactive">+1</button>
+    <button @click="downCountReactive">-1</button>
+    <button @click="clearCountReactive">Сброс</button>
   </div>
 </template>

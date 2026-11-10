@@ -12,14 +12,31 @@
 -->
 <script>
 export default {
-  // TODO: data() { return { ... } }
-  // TODO: methods: { ... }
+  data() { 
+    return { 
+      count: 0,
+   }
+ },
+  methods: { 
+   upCount() {
+    this.count++
+   },
+   downCount() {
+    this.count--
+   },
+   clearCount() {
+    this.count = 0
+   }
+  }
 }
 </script>
 
 <template>
   <div>
     <h1>Счётчик (Options API)</h1>
-    <!-- TODO: число и кнопки -->
+    <span>{{ count }}</span>
+    <button @click="upCount">+1</button>
+    <button @click="downCount">-1</button>
+    <button @click="clearCount">Сброс</button>
   </div>
 </template>
