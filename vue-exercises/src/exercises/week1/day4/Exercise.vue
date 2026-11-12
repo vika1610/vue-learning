@@ -21,20 +21,55 @@
   Подсказки — в файле hints.md рядом.
 -->
 <script setup>
+import { computed, ref } from 'vue'
 // TODO: часть 1 — ref для °C и computed для °F
+const celsius = ref(0);
+const fahrenheit = computed({
+  get() {
+    return celsius.value * 9 / 5 + 32
+  },
+  set(newF) {
+    celsius.value = (newF - 32) * 5 / 9 
+  },
+})
+
 // TODO: часть 2 — счётчик
+const count = ref(0);
+
+function upCount() {
+  count.value++
+}
+
+function downCount() {
+  count.value--
+}
+
+function clearCount() {
+  count.value = 0
+}
 </script>
 
 <template>
   <div>
     <h2>Конвертер температур</h2>
-    <!-- TODO: поле ввода °C и результат в °F -->
+    <input type="number" v-model="celsius" placeholder="°C" />
+    <div>{{ fahrenheit.toFixed(1) }} °F</div>
+    <input type="number" v-model="fahrenheit" placeholder="°F" />
+    <div>{{ celsius.toFixed(1) }} °C</div>
 
     <h2>Счётчик</h2>
+    <span :class="{error: count < 0}">{{ count }}</span>
+    <span :style="{color: count < 0 ? 'red' : 'green'}">{{ count }}</span>
+    <button @click="upCount">+1</button>
+    <button @click="downCount">-1</button>
+    <button @click="clearCount">Сброс</button>
     <!-- TODO: число с условным классом и кнопки -->
   </div>
 </template>
 
 <style scoped>
+.error {
+  color: red;
+}
 /* TODO: класс для отрицательного числа */
 </style>
